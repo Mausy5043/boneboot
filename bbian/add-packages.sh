@@ -4,6 +4,9 @@
 ME=$(whoami)
 
 echo "Installing packages..."
-#sudo apt-get -yuV install ...
+#probably already present:
+sudo apt-get -yuV install apt-utils bc git htop screen logrotate lsof nano python rsync sudo
+# probably not yet installed
+sudo apt-get -yuV install nfs-common
 echo "Installing additional Python packages..."
 #sudo apt-get -yuV install ...
