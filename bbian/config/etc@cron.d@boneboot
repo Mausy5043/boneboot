@@ -1,0 +1,2 @@
+# m h dom mon dow user  command
+@reboot   debian  sleep 120 && /home/debian/boneboot/00-run-scripts.sh 2>&1 | logger -p info -t boneboot

@@ -1,16 +1,10 @@
 #! /bin/bash
 
-# This script only gets executed if `/tmp/raspboot.reboot` is absent...
+# This script only gets executed if `/tmp/boneboot.reboot` is absent...
 # /tmp is in RAMFS, so everytime the server is rebooted, this script is executed.
 
 CLNT=$(hostname)
 ME=$(whoami)
-
-# Check if the /home/$ME/bin directory exists
-if [ ! -d /home/$ME/bin ]; then
-  echo "Create /home/$ME/bin ..."
-  mkdir /home/$ME/bin
-fi
 
 # /var/log is on tmpfs so recreate lastlog now
 if [ ! -e /var/log/lastlog ]; then
@@ -19,14 +13,20 @@ if [ ! -e /var/log/lastlog ]; then
   sudo chmod 664 /var/log/lastlog
 fi
 
-# Download the contents of the /home/$ME/bin directory
+# Check if the /home/$ME/bin directory exists
+if [ ! -d /home/$ME/bin ]; then
+  echo "Create /home/$ME/bin ..."
+  mkdir /home/$ME/bin
+fi
+
+# Download the contents for the /home/$ME/bin directory
 # We use the `.rsyncd.secret` file as a flag.
 # This allows a re-population of this directory in case new/updated binaries
 # need to be installed.
 if [ ! -e /home/$ME/bin/.rsyncd.secret ]; then
   echo "Populate /home/$ME/bin ..."
   sudo mount /mnt/backup
-  cp -r /mnt/backup/rbmain/bin/. /home/$ME/bin
+  cp -r /mnt/backup/bbmain/bin/. /home/$ME/bin
   sudo umount /mnt/backup
   # Set permissions
   chmod -R 0755 /home/$ME/bin
@@ -37,8 +37,6 @@ echo "Boot detection mail... "$(date)
 /home/$ME/bin/bootmail.py
 
 # Additional scripts to be executed on the first boot after install.
-# This makes the `raspbian-ua-netinst` installer more uniform and easier
-# to maintain regardless of the use.
 if [ ! -e /home/$ME/.firstboot ]; then
   echo -n "First boot detected on "
   date
@@ -70,11 +68,11 @@ if [ ! -e /home/$ME/.firstboot ]; then
     source ./$CLNT/mod-files.sh
   fi
 
-  echo "Install raspdiagd..."
-  git clone -b master https://github.com/Mausy5043/raspdiagd.git /home/$ME/raspdiagd
+  echo "Install bonediagd..."
+  git clone -b master https://github.com/Mausy5043/bonediagd.git /home/$ME/raspdiagd
   # set permissions
-  chmod -R 0755 /home/$ME/raspdiagd
-  pushd /home/$ME/raspdiagd
+  chmod -R 0755 /home/$ME/bonediagd
+  pushd /home/$ME/bonediagd
     ./install.sh
   popd
 
