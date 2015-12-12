@@ -7,6 +7,8 @@ ME=$(whoami)
 echo "Correcting owners/permissions"
 sudo find / -group 116 -exec chown root:root {} \;
 # -exec chmod 744 {} \;
+sudo chmod +r /etc/dpkg/dpkg.cfg.d/*
+sudo chmod +r /etc/apt/apt.conf.d/*
 
 echo "Setting timezone..."
 sudo cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
