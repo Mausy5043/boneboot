@@ -1,11 +1,10 @@
-echo "Modifying installation..."
-
 ME=$(whoami)
 
 # Install information about the wifi-network
 #sudo cp /home/debian/bin/wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 # Sometimes files have the wrong group. Correct that here
+echo "Correcting owners/permissions"
 sudo find / -group 116 -exec chown root:root {} \;
 # -exec chmod 744 {} \;
 
@@ -20,6 +19,7 @@ echo "Regenerating SSH-keys..."
 sudo rm /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
 
+echo "Adding mountpoints to /etc/fstab"
 fstab_appended=$(sudo cat /etc/fstab |grep "boson" |wc -l)
 if [ $fstab_appended==0 ]; then
   echo 'boson.lan:/srv/array1/backup    /mnt/backup nfs4 nouser,atime,rw,dev,exec,suid,noauto  0  0'  | sudo tee --append /etc/fstab

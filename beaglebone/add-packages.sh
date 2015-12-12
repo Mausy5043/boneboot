@@ -12,4 +12,5 @@ sudo apt-get -yuV install debian-keyring debian-archive-keyring
 echo "Installing additional Python packages..."
 sudo apt-get -yuV install python-gnuplot
 
+echo "Starting upgrade..."
 sudo apt-get -yuV upgrade
