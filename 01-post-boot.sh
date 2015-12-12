@@ -1,7 +1,8 @@
 #! /bin/bash
 
 # This script only gets executed if `/tmp/boneboot.reboot` is absent...
-# /tmp is in RAMFS, so everytime the server is rebooted, this script is executed.
+# /tmp is emptied at reboot, so everytime the server is rebooted,
+# this script is executed.
 
 CLNT=$(hostname)
 ME=$(whoami)
