@@ -20,18 +20,14 @@ if [ ! -d /home/$ME/bin ]; then
   mkdir /home/$ME/bin
 fi
 
-# Download the contents for the /home/$ME/bin directory
-# We use the `.rsyncd.secret` file as a flag.
-# This allows a re-population of this directory in case new/updated binaries
-# need to be installed.
-if [ ! -e /home/$ME/bin/.rsyncd.secret ]; then
-  echo "Populate /home/$ME/bin ..."
-  sudo mount /mnt/backup
-  cp -r /mnt/backup/bbmain/bin/. /home/$ME/bin
-  sudo umount /mnt/backup
-  # Set permissions
-  chmod -R 0755 /home/$ME/bin
-  chmod    0740 /home/$ME/bin/.rsyncd.secret
+# Check if /mnt is populated
+if [ ! -d /mnt/backup ]; then
+  echo "Create /mnt/backup ..."
+  mkdir -p /mnt/backup
+fi
+if [ ! -d /mnt/share1 ]; then
+  echo "Create /mnt/share1 ..."
+  mkdir -p /mnt/share1
 fi
 
 echo "Boot detection mail... "$(date)
@@ -44,9 +40,9 @@ if [ ! -e /home/$ME/.firstboot ]; then
 
   # 1. Update the system
   echo "Updating..."
+  # select a local source
+  sudo sed -i 's/us/nl/' /etc/apt/sources.list
   sudo apt-get update
-  #echo "Upgrading..."
-  #sudo apt-get -yuV upgrade
 
   # 2. Install server specific-packages
   echo "Additional packages installation..."
@@ -85,4 +81,19 @@ if [ ! -e /home/$ME/.firstboot ]; then
   sudo shutdown -r +1 "First boot installation completed. Please log off now."
   echo -n "First boot installation completed on "
   date
+fi
+
+# Download the contents for the /home/$ME/bin directory
+# We use the `.rsyncd.secret` file as a flag.
+# This allows a re-population of this directory in case new/updated binaries
+# need to be installed.
+if [ ! -e /home/$ME/bin/.rsyncd.secret ]; then
+  echo "Populate /home/$ME/bin ..."
+  # we use the long command here because /etc/fstab may not contain an entry yet.
+  sudo mount -t nfs boson.lan:/srv/array1/backup /mnt/backup -o nouser,atime,rw,dev,exec,suid,noauto
+  cp -r /mnt/backup/bbmain/bin/. /home/$ME/bin
+  sudo umount /mnt/backup
+  # Set permissions
+  chmod -R 0755 /home/$ME/bin
+  chmod    0740 /home/$ME/bin/.rsyncd.secret
 fi

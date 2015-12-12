@@ -11,3 +11,5 @@ sudo apt-get -yuV install nfs-common gnuplot
 sudo apt-get -yuV debian-keyring debian-archive-keyring
 echo "Installing additional Python packages..."
 sudo apt-get -yuV install python-gnuplot
+
+sudo apt-get upgrade
