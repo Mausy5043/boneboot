@@ -18,5 +18,6 @@ cd boneboot
 chmod 744 *
 ./00-run-scripts.sh
 cd ..
+sleep 1
 tail -f post-boot.log
 ```
