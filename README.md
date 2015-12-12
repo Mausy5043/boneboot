@@ -10,12 +10,13 @@ Post-install / post-boot for BeagleBone Black
 
 - Open a terminal window and login onto the BBB: `$ ssh debian@beaglebone.lan`
 - Start by setting a new password: `passwd`
-- Next, clone the `boneboot` repo and run it.
-
-    echo "master" > .boneboot.branch
-    git clone https://github.com/Mausy5043/boneboot.git
-    cd boneboot
-    chmod 744 *
+- Next, clone the `boneboot` repo and run it:
+```
+echo "master" > .boneboot.branch
+git clone https://github.com/Mausy5043/boneboot.git
+cd boneboot
+chmod 744 *
 ./00-run-scripts.sh
 cd ..
 tail -f post-boot.log
+```
