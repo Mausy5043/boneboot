@@ -69,7 +69,12 @@ if [ ! -e /home/$ME/.firstboot ]; then
   pushd /home/$ME/bonediagd
     ./install.sh
   popd
-
+  # Grow / partition
+  echo "Growing main partition"
+  cd /opt/scripts/tools/
+  git pull
+  sudo ./grow_partition.sh
+  
   # Plant the flag and wrap up
   if [ -e /bin/journalctl ]; then
     sudo usermod -a -G systemd-journal $ME
