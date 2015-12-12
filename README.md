@@ -16,5 +16,6 @@ Post-install / post-boot for BeagleBone Black
     git clone https://github.com/Mausy5043/boneboot.git
     cd boneboot
     chmod 744 *
-    ./00-run-scripts.sh
-    
+./00-run-scripts.sh
+cd ..
+tail -f post-boot.log

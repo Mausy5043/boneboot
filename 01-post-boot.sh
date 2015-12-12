@@ -23,15 +23,12 @@ fi
 # Check if /mnt is populated
 if [ ! -d /mnt/backup ]; then
   echo "Create /mnt/backup ..."
-  mkdir -p /mnt/backup
+  sudo mkdir -p /mnt/backup
 fi
 if [ ! -d /mnt/share1 ]; then
   echo "Create /mnt/share1 ..."
-  mkdir -p /mnt/share1
+  sudo mkdir -p /mnt/share1
 fi
-
-echo "Boot detection mail... "$(date)
-/home/$ME/bin/bootmail.py
 
 # Additional scripts to be executed on the first boot after install.
 if [ ! -e /home/$ME/.firstboot ]; then
@@ -97,3 +94,6 @@ if [ ! -e /home/$ME/bin/.rsyncd.secret ]; then
   chmod -R 0755 /home/$ME/bin
   chmod    0740 /home/$ME/bin/.rsyncd.secret
 fi
+
+echo "Boot detection mail... "$(date)
+/home/$ME/bin/bootmail.py
