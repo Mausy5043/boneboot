@@ -9,6 +9,8 @@ sudo apt-get -yuV install apt-utils bc git htop screen logrotate lsof nano pytho
 # probably not yet installed
 sudo apt-get -yuV install nfs-common gnuplot fake-hwclock
 sudo apt-get -yuV install debian-keyring debian-archive-keyring
+# MySQL support
+sudo apt-get -yuV install mysql-client python-mysqldb
 echo "Installing additional Python packages..."
 sudo apt-get -yuV install build-essential python-dev python-setuptools python-pip python-smbus python-gnuplot
 
