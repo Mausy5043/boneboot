@@ -77,9 +77,9 @@ if [ ! -e $HOME/.firstboot ]; then
   ./grow_partition.sh
 
   # Plant the flag and wrap up
-  if [ -e /bin/journalctl ]; then
+  #if [ -e /bin/journalctl ]; then
     #usermod -a -G systemd-journal $ME
-  fi
+  #fi
   touch $HOME/.firstboot
   shutdown -r +2 "First boot installation completed. Please log off now."
   echo -n "First boot installation completed on "
