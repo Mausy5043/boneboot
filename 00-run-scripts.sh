@@ -2,12 +2,13 @@
 
 CLNT=$(hostname)
 ME=$(whoami)
+HERE=$(pwd)
 
 # Timestamp the logfile
 date
 
 # Change PWD to the binaries directory
-pushd /home/$ME/boneboot
+pushd $HERE/boneboot
   ./02-update-scripts.sh
   # Boot detection
   if [ ! -e /tmp/boneboot.reboot ]; then
