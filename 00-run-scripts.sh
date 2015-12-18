@@ -8,7 +8,7 @@ HERE=$(pwd)
 date
 
 # Change PWD to the binaries directory
-pushd $HERE/boneboot
+pushd $HOME/boneboot
   ./02-update-scripts.sh
   # Boot detection
   if [ ! -e /tmp/boneboot.reboot ]; then

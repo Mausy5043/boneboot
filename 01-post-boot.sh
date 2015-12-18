@@ -15,10 +15,10 @@ if [ ! -e /var/log/lastlog ]; then
   chmod 664 /var/log/lastlog
 fi
 
-# Check if the $HERE/bin directory exists
-if [ ! -d $HERE/bin ]; then
-  echo "Create $HERE/bin ..."
-  mkdir $HERE/bin
+# Check if the $HOME/bin directory exists
+if [ ! -d $HOME/bin ]; then
+  echo "Create $HOME/bin ..."
+  mkdir $HOME/bin
 fi
 
 # Check if /mnt is populated
@@ -32,7 +32,7 @@ if [ ! -d /mnt/share1 ]; then
 fi
 
 # Additional scripts to be executed on the first boot after install.
-if [ ! -e $HERE/.firstboot ]; then
+if [ ! -e $HOME/.firstboot ]; then
   echo -n "First boot detected on "
   date
 
@@ -64,10 +64,10 @@ if [ ! -e $HERE/.firstboot ]; then
   fi
 
   echo "Install bonediagd..."
-  git clone -b roottest https://github.com/Mausy5043/bonediagd.git $HERE/bonediagd
+  git clone -b roottest https://github.com/Mausy5043/bonediagd.git $HOME/bonediagd
   # set permissions
-  chmod -R 0755 $HERE/bonediagd
-  pushd $HERE/bonediagd
+  chmod -R 0755 $HOME/bonediagd
+  pushd $HOME/bonediagd
     ./install.sh
   popd
   # Grow / partition
@@ -80,26 +80,26 @@ if [ ! -e $HERE/.firstboot ]; then
   if [ -e /bin/journalctl ]; then
     #usermod -a -G systemd-journal $ME
   fi
-  touch $HERE/.firstboot
+  touch $HOME/.firstboot
   shutdown -r +2 "First boot installation completed. Please log off now."
   echo -n "First boot installation completed on "
   date
 fi
 
-# Download the contents for the $HERE/bin directory
+# Download the contents for the $HOME/bin directory
 # We use the `.rsyncd.secret` file as a flag.
 # This allows a re-population of this directory in case new/updated binaries
 # need to be installed.
-if [ ! -e $HERE/bin/.rsyncd.secret ]; then
-  echo "Populate $HERE/bin ..."
+if [ ! -e $HOME/bin/.rsyncd.secret ]; then
+  echo "Populate $HOME/bin ..."
   # we use the long command here because /etc/fstab may not contain an entry yet.
   mount -t nfs boson.lan:/srv/array1/backup /mnt/backup -o nouser,atime,rw,dev,exec,suid,noauto
-  cp -r /mnt/backup/bbone/bin/. $HERE/bin
+  cp -r /mnt/backup/bbone/bin/. $HOME/bin
   umount /mnt/backup
   # Set permissions
-  chmod -R 0755 $HERE/bin
-  chmod    0740 $HERE/bin/.rsyncd.secret
+  chmod -R 0755 $HOME/bin
+  chmod    0740 $HOME/bin/.rsyncd.secret
 fi
 
 echo "Boot detection mail... "$(date)
-$HERE/bin/bootmail.py
+$HOME/bin/bootmail.py

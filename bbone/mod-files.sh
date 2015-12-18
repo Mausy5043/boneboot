@@ -31,13 +31,13 @@ fi
 
 ###
 # default settings for screen
-echo "shell -\$SHELL" > $HERE/.screenrc
-echo "defscrollback 10000" >> $HERE/.screenrc
-echo "hardstatus on" >> $HERE/.screenrc
-echo "hardstatus alwayslastline" >> $HERE/.screenrc
-echo "hardstatus string \"%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %l %{..Y} %Y-%m-%d %c \"" >> $HERE/.screenrc
+echo "shell -\$SHELL" > $HOME/.screenrc
+echo "defscrollback 10000" >> $HOME/.screenrc
+echo "hardstatus on" >> $HOME/.screenrc
+echo "hardstatus alwayslastline" >> $HOME/.screenrc
+echo "hardstatus string \"%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %l %{..Y} %Y-%m-%d %c \"" >> $HOME/.screenrc
 
 # ssh
-mkdir -m 0700 -p $HERE/.ssh
+mkdir -m 0700 -p $HOME/.ssh
 
-echo "\$HOME/bin/chkupdate.sh" >> $HERE/.profile
+echo "\$HOME/bin/chkupdate.sh" >> $HOME/.profile
