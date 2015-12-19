@@ -70,10 +70,12 @@ if [ ! -e $HOME/.firstboot ]; then
   pushd $HOME/bonediagd
     ./install.sh
   popd
-  # Grow / partition
-  echo "Growing main partition"
+  
   cd /opt/scripts/tools/
   git pull
+  echo "Updating KERNEL"
+  ./update_kernel.sh
+  echo "Growing main partition"
   ./grow_partition.sh
 
   # Plant the flag and wrap up
