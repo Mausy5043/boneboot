@@ -15,8 +15,8 @@ Post-install / post-boot for BeagleBone Black
 sudo su -
 echo "master" > .boneboot.branch
 git clone https://github.com/Mausy5043/boneboot.git
-cd boneboot
+pushd boneboot
 chmod 744 *
 ./00-run-scripts.sh
-cd ..; cat post-boot.log; tail -f post-boot.log
+popd; cat post-boot.log; tail -f post-boot.log
 ```

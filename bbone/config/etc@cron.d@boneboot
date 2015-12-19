@@ -1,3 +1,4 @@
+NODE_PATH=/usr/local/lib/node_modules
 # m h dom mon dow user  command
 @reboot   root    sleep 120 && /root/boneboot/00-run-scripts.sh 2>&1 | logger -p info -t boneboot
 @reboot   root    sleep 120 && /usr/bin/nodejs /root/boneboot/ledsoff.js 2>&1 | logger -p info -t ledsoff
