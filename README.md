@@ -18,7 +18,5 @@ git clone https://github.com/Mausy5043/boneboot.git
 cd boneboot
 chmod 744 *
 ./00-run-scripts.sh
-cd ..
-sleep 1
-tail -f post-boot.log
+cd ..; cat post-boot.log; tail -f post-boot.log
 ```
