@@ -70,11 +70,11 @@ if [ ! -e $HOME/.firstboot ]; then
   pushd $HOME/bonediagd
     ./install.sh
   popd
-  
+
   cd /opt/scripts/tools/
   git pull
-  echo "Updating KERNEL"
-  ./update_kernel.sh
+  #echo "Updating KERNEL"
+  #./update_kernel.sh
   echo "Growing main partition"
   ./grow_partition.sh
 

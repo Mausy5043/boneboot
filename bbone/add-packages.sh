@@ -17,3 +17,6 @@ apt-get -yuV install build-essential python-dev python-setuptools python-pip pyt
 
 echo "Starting upgrade..."
 apt-get -yuV upgrade
+
+sudo apt-get -y autoremove
+sudo apt-get -y autoclean
