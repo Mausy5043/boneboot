@@ -1,2 +1,3 @@
 # m h dom mon dow user  command
-@reboot   debian  sleep 120 && /home/debian/boneboot/00-run-scripts.sh 2>&1 | logger -p info -t boneboot
+@reboot   root    sleep 120 && /root/boneboot/00-run-scripts.sh 2>&1 | logger -p info -t boneboot
+@reboot   root    sleep 120 && /usr/bin/nodejs /root/boneboot/ledsoff.js 2>&1 | logger -p info -t ledsoff
