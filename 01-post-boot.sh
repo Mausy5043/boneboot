@@ -96,7 +96,8 @@ if [ ! -e $HOME/bin/.rsyncd.secret ]; then
   echo "Populate $HOME/bin ..."
   # we use the long command here because /etc/fstab may not contain an entry yet.
   mount -t nfs boson.lan:/srv/array1/backup /mnt/backup -o nouser,atime,rw,dev,exec,suid,noauto
-  cp -r /mnt/backup/bbmain/bin/. $HOME/bin
+  ##FIXME: 
+  cp -r /mnt/backup/bbmain/home/debian/bin/. $HOME/bin
   umount /mnt/backup
   # Set permissions
   chmod -R 0755 $HOME/bin
