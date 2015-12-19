@@ -64,7 +64,7 @@ if [ ! -e $HOME/.firstboot ]; then
   fi
 
   echo "Install bonediagd..."
-  git clone -b roottest https://github.com/Mausy5043/bonediagd.git $HOME/bonediagd
+  git clone -b master https://github.com/Mausy5043/bonediagd.git $HOME/bonediagd
   # set permissions
   chmod -R 0755 $HOME/bonediagd
   pushd $HOME/bonediagd
