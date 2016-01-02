@@ -8,7 +8,7 @@ echo "Installing packages..."
 #probably already present:
 apt-get -yuV install apt-utils bc git htop screen logrotate lsof nano python rsync wireless-tools wpasupplicant
 # probably not yet installed
-apt-get -yuV install nfs-common gnuplot fake-hwclock tree
+apt-get -yuV install nfs-common gnuplot fake-hwclock tree ntp
 apt-get -yuV install debian-keyring debian-archive-keyring
 # MySQL support
 apt-get -yuV install mysql-client python-mysqldb
