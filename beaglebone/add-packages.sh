@@ -13,7 +13,7 @@ apt-get -yuV install debian-keyring debian-archive-keyring
 # MySQL support
 apt-get -yuV install mysql-client python-mysqldb
 echo "Installing additional Python packages..."
-apt-get -yuV install build-essential python-dev python-setuptools python-pip python-smbus python-gnuplot
+apt-get -yuV install build-essential python-dev python-setuptools python-pip python-smbus python-gnuplot python-openssl
 
 echo "Starting upgrade..."
 apt-get -yuV upgrade
