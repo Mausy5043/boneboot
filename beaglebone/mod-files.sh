@@ -41,3 +41,13 @@ echo "hardstatus string \"%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %l %{..Y} %Y-%
 mkdir -m 0700 -p $HOME/.ssh
 
 echo "\$HOME/bin/chkupdate.sh" >> $HOME/.profile
+
+# WiFi
+# ref: https://learn.adafruit.com/setting-up-wifi-with-beaglebone-black/configuration
+pushd /tmp
+  git clone https://github.com/adafruit/wifi-reset.git
+  pushd wifi-reset
+    chmod +x install.sh
+    ./install.sh
+  popd
+popd
