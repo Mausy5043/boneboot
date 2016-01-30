@@ -9,3 +9,5 @@ b.digitalWrite('USR0', 0);
 b.digitalWrite('USR1', 0);
 b.digitalWrite('USR2', 0);
 b.digitalWrite('USR3', 0);
+
+process.stdout.write("USR LEDS switched off\n");
