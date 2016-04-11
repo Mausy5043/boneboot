@@ -15,8 +15,8 @@ apt-get -yuV install mysql-client python-mysqldb
 echo "Installing additional Python packages..."
 apt-get -yuV install build-essential python-dev python-setuptools python-pip python-smbus python-gnuplot
 
-echo "Starting upgrade..."
-apt-get -yuV upgrade
+# echo "Starting upgrade..."
+# apt-get -yuV upgrade
 
 sudo apt-get -y autoremove
 sudo apt-get -y autoclean
