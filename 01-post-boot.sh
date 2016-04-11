@@ -65,6 +65,17 @@ if [ ! -e $HOME/.firstboot ]; then
 
   echo "Install bonediagd..."
   git clone -b master https://github.com/Mausy5043/bonediagd.git $HOME/bonediagd
+  echo "master" > $HOME/.bonediagd
+  # set permissions
+  chmod -R 0755 $HOME/bonediagd
+  pushd $HOME/bonediagd
+    ./install.sh
+  popd
+
+
+  echo "Install lnxdiagd..."
+  git clone -b master https://github.com/Mausy5043/lnxdiagd.git $HOME/lnxdiagd
+  echo "v1_0" > $HOME/.lnxdiagd
   # set permissions
   chmod -R 0755 $HOME/bonediagd
   pushd $HOME/bonediagd
@@ -106,3 +117,9 @@ fi
 
 echo "Boot detection mail... "$(date)
 $HOME/bin/bootmail.py
+
+echo "**************************************************************************"
+echo
+echo " To upgrade to the latest kernel use:  /opt/scripts/tools/update_kernel.sh"
+echo
+echo "**************************************************************************"
