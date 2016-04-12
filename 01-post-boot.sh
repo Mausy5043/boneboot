@@ -110,6 +110,8 @@ fi
 echo "Boot detection mail... "$(date)
 $HOME/bin/bootmail.py
 
+cat /sys/devices/platform/bone_capemgr/slots
+
 echo "**************************************************************************"
 echo
 echo " To upgrade to the latest kernel use:  /opt/scripts/tools/update_kernel.sh"
