@@ -72,7 +72,6 @@ if [ ! -e $HOME/.firstboot ]; then
     ./install.sh
   popd
 
-
   echo "Install lnxdiagd..."
   git clone -b master https://github.com/Mausy5043/lnxdiagd.git $HOME/lnxdiagd
   echo "v1_0" > $HOME/.lnxdiagd

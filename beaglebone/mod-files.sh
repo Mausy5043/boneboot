@@ -6,7 +6,7 @@ HERE=$(pwd)
 
 # Sometimes files have the wrong group. Correct that here
 echo "Correcting owners/permissions"
-find / -group 116 -exec chown root:root {} \;
+# find / -group 116 -exec chown root:root {} \;
 # -exec chmod 744 {} \;
 chmod +r /etc/dpkg/dpkg.cfg.d/*
 chmod +r /etc/apt/apt.conf.d/*
