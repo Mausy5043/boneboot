@@ -69,7 +69,7 @@ if [ ! -e $HOME/.firstboot ]; then
   # set permissions
   chmod -R 0755 $HOME/bonediagd
   pushd $HOME/bonediagd
-    ./install.sh
+    #./install.sh
   popd
 
   echo "Install lnxdiagd..."
@@ -78,7 +78,7 @@ if [ ! -e $HOME/.firstboot ]; then
   # set permissions
   chmod -R 0755 $HOME/bonediagd
   pushd $HOME/bonediagd
-    ./install.sh
+    #./install.sh
   popd
 
   # Plant the flag and wrap up
