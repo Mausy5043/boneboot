@@ -5,11 +5,11 @@ HERE=$(pwd)
 #cp /home/debian/bin/wpa.conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 # Sometimes files have the wrong group. Correct that here
-echo "Correcting owners/permissions"
+# echo "Correcting owners/permissions"
 # find / -group 116 -exec chown root:root {} \;
 # -exec chmod 744 {} \;
-chmod +r /etc/dpkg/dpkg.cfg.d/*
-chmod +r /etc/apt/apt.conf.d/*
+# chmod +r /etc/dpkg/dpkg.cfg.d/*
+# chmod +r /etc/apt/apt.conf.d/*
 
 echo "Setting timezone..."
 cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
@@ -44,10 +44,10 @@ echo "\$HOME/bin/chkupdate.sh" >> $HOME/.profile
 
 # WiFi
 # ref: https://learn.adafruit.com/setting-up-wifi-with-beaglebone-black/configuration
-pushd /tmp
-  git clone https://github.com/adafruit/wifi-reset.git
-  pushd wifi-reset
-    chmod +x install.sh
-    ./install.sh
-  popd
-popd
+#pushd /tmp
+#  git clone https://github.com/adafruit/wifi-reset.git
+#  pushd wifi-reset
+#    chmod +x install.sh
+#    ./install.sh
+#  popd
+#popd

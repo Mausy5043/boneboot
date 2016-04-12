@@ -6,9 +6,12 @@ HERE=$(pwd)
 
 echo "Installing packages..."
 # probably already present:
-apt-get -yuV install apt-utils bc git htop screen logrotate lsof nano python rsync wireless-tools wpasupplicant
+apt-get -yuV install apt-utils bc git htop screen logrotate lsof nano python rsync
+# wireless-tools wpasupplicant
 # probably not yet installed:
-apt-get -yuV install nfs-common gnuplot-nox fake-hwclock tree ntp wavemon
+apt-get -yuV install nfs-common gnuplot-nox tree
+# ntp fake-hwclock 
+# wavemon
 apt-get -yuV install debian-keyring debian-archive-keyring
 # MySQL support:
 apt-get -yuV install mysql-client python-mysqldb
