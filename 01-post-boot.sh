@@ -82,13 +82,6 @@ if [ ! -e $HOME/.firstboot ]; then
     ./install.sh
   popd
 
-  cd /opt/scripts/tools/
-  git pull
-  #echo "Updating KERNEL"
-  #./update_kernel.sh
-  echo "Growing main partition"
-  ./grow_partition.sh
-
   # Plant the flag and wrap up
   #if [ -e /bin/journalctl ]; then
     #usermod -a -G systemd-journal $ME
