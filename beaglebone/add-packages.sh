@@ -17,6 +17,7 @@ apt-get -yuV install nfs-common gnuplot-nox tree
 # ntp fake-hwclock
 # wavemon
 # MySQL support:
-apt-get -yuV install mysql-client python-mysqldb
+apt-get -yuV install mysql-client python-mysqldb lftp
+
 echo "Installing additional Python packages..."
 apt-get -yuV install build-essential python-dev python-setuptools python-pip python-smbus python-gnuplot python-openssl
