@@ -76,8 +76,8 @@ if [ ! -e $HOME/.firstboot ]; then
   git clone -b master https://github.com/Mausy5043/lnxdiagd.git $HOME/lnxdiagd
   echo "v1_0" > $HOME/.lnxdiagd
   # set permissions
-  chmod -R 0755 $HOME/bonediagd
-  pushd $HOME/bonediagd
+  chmod -R 0755 $HOME/lnxdiagd
+  pushd $HOME/lnxdiagd
     #./install.sh
   popd
 
