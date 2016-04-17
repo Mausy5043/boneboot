@@ -65,7 +65,7 @@ if [ ! -e $HOME/.firstboot ]; then
 
   echo "Install bonediagd..."
   git clone -b master https://github.com/Mausy5043/bonediagd.git $HOME/bonediagd
-  echo "master" > $HOME/.bonediagd
+  echo "master" > $HOME/.bonediagd.branch
   # set permissions
   chmod -R 0755 $HOME/bonediagd
   pushd $HOME/bonediagd
@@ -74,7 +74,7 @@ if [ ! -e $HOME/.firstboot ]; then
 
   echo "Install lnxdiagd..."
   git clone -b master https://github.com/Mausy5043/lnxdiagd.git $HOME/lnxdiagd
-  echo "v1_0" > $HOME/.lnxdiagd
+  echo "v1_0" > $HOME/.lnxdiagd.branch
   # set permissions
   chmod -R 0755 $HOME/lnxdiagd
   pushd $HOME/lnxdiagd
